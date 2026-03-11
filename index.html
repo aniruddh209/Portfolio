@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniruddh Parmar | Full-Stack Developer & Teaching Assistant</title>
+  <meta name="description" content="Portfolio of Aniruddh Parmar — Software Engineering fresher, Full-Stack Developer using ASP.NET & MERN Stack, Teaching Assistant at Darshan University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Animated BG Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ NAVBAR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-brand">
+      <div class="brand-icon"><i class="fas fa-code"></i></div>
+      <span class="brand-name">Aniruddh<span class="brand-dot">.dev</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about"      class="nav-link">About</a></li>
+      <li><a href="#skills"     class="nav-link">Skills</a></li>
+      <li><a href="#journey"    class="nav-link">Journey</a></li>
+      <li><a href="#projects"   class="nav-link">Projects</a></li>
+      <li><a href="#contact"    class="nav-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-hire">Hire Me 🚀</a>
+    <button class="hamburger" id="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-greeting">
+        <span class="greeting-wave">👋</span> Hello, World! — I'm
+      </div>
+
+      <h1 class="hero-name">
+        <span class="name-l1">ANIRUDDH</span>
+        <span class="name-l2">PARMAR</span>
+      </h1>
+
+      <div class="hero-badges">
+        <span class="badge badge-primary"><i class="fas fa-laptop-code"></i> FULL-STACK DEVELOPER</span>
+        <span class="badge badge-accent"><i class="fas fa-chalkboard-teacher"></i> TEACHING ASSISTANT</span>
+        <span class="badge"><i class="fas fa-brain"></i> ASP.NET &amp; MERN</span>
+      </div>
+
+      <!-- Terminal code block -->
+      <div class="hero-terminal">
+        <div class="terminal-bar">
+          <span class="t-dot red"></span><span class="t-dot yellow"></span><span class="t-dot green"></span>
+          <span class="t-title">terminal — aniruddh.dev</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line"><span class="t-prompt">~</span> <span class="t-cmd">whoami</span></div>
+          <div class="t-line"><span class="t-out">aniruddh_parmar</span></div>
+          <div class="t-line" style="margin-top:6px"><span class="t-prompt">~</span> <span class="t-cmd">cat role.txt</span></div>
+          <div class="t-line"><span class="t-string" id="typewriterText">Full-Stack Developer</span><span class="t-cursor">▮</span></div>
+          <div class="t-line" style="margin-top:6px"><span class="t-prompt">~</span> <span class="t-cmd">echo $CGPA</span></div>
+          <div class="t-line"><span class="t-num">8.67</span> <span class="t-out">/ 10.0</span></div>
+        </div>
+      </div>
+
+      <p class="hero-bio">Software Engineering fresher with strong knowledge of OOP, DBMS, and Web Development. Building scalable apps with <strong>ASP.NET Core MVC</strong> & <strong>MERN Stack</strong>. Passionate about clean, efficient code.</p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+        <a href="#contact"  class="btn-secondary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+      </div>
+      <a href="#" class="btn-cv" onclick="alert('Place your CV PDF in the project folder & update this link!')"><i class="fas fa-download"></i> Download CV</a>
+
+      <!-- Mini stats -->
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hs-num" data-target="8.67">0</span><span class="hs-label">CGPA</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span class="hs-num" data-target="6">0</span><span class="hs-label">Projects</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span class="hs-num" data-target="15">0</span><span class="hs-label">Technologies</span></div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat"><span class="hs-num" data-target="2">0</span><span class="hs-label">Yrs Coding</span></div>
+      </div>
+    </div>
+
+    <!-- 3D Globe (Jeel-style) -->
+    <div class="hero-right">
+      <div class="globe-outer-ring"></div>
+      <div class="globe-wrapper" id="globeWrapper">
+        <canvas id="globeCanvas"></canvas>
+        <div class="globe-pin" id="globePin">
+          <i class="fas fa-map-marker-alt"></i> Rajkot, India
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ABOUT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section" id="about">
+    <div class="section-label"><span>👤 PROFILE</span></div>
+    <h2 class="section-title">About <span class="gt">Me</span></h2>
+    <div class="section-line"></div>
+    <p class="section-sub">A passionate developer & educator building beautiful digital experiences.</p>
+
+    <div class="about-tabs">
+      <button class="tab-btn active" data-tab="profile"><i class="fas fa-user"></i> About Me</button>
+      <button class="tab-btn" data-tab="softskills"><i class="fas fa-brain"></i> Soft Skills</button>
+      <button class="tab-btn" data-tab="languages"><i class="fas fa-globe"></i> Languages</button>
+      <button class="tab-btn" data-tab="hobbies"><i class="fas fa-heart"></i> Hobbies</button>
+      <button class="tab-btn" data-tab="goals"><i class="fas fa-flag"></i> Goals</button>
+    </div>
+
+    <div class="tab-content active" id="tab-content-profile">
+      <div class="info-grid">
+        <div class="info-card glow-card"><span class="ic-label">Full Name</span><span class="ic-val">Aniruddh Parmar</span></div>
+        <div class="info-card glow-card"><span class="ic-label">Email</span><span class="ic-val" style="font-size:14px">aniruddhp16@email.com</span></div>
+        <div class="info-card glow-card"><span class="ic-label">Phone</span><span class="ic-val">+91 9313599527</span></div>
+        <div class="info-card glow-card"><span class="ic-label">University</span><span class="ic-val" style="font-size:14px">Darshan University, Rajkot</span></div>
+        <div class="info-card glow-card"><span class="ic-label">Degree</span><span class="ic-val" style="font-size:14px">B.Tech Computer Engineering</span></div>
+        <div class="info-card glow-card"><span class="ic-label">Batch</span><span class="ic-val">2024 – 2028</span></div>
+        <div class="info-card glow-card"><span class="ic-label">CGPA</span><span class="ic-val accent">8.67 / 10 ⭐</span></div>
+        <div class="info-card glow-card"><span class="ic-label">Status</span><span class="ic-val green">Open to Work 🚀</span></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-content-softskills">
+      <div class="pills-flex">
+        <div class="skill-pill"><i class="fas fa-users"></i> Leadership</div>
+        <div class="skill-pill"><i class="fas fa-lightbulb"></i> Problem Solving</div>
+        <div class="skill-pill"><i class="fas fa-comments"></i> Communication</div>
+        <div class="skill-pill"><i class="fas fa-sync"></i> Adaptability</div>
+        <div class="skill-pill"><i class="fas fa-clock"></i> Time Management</div>
+        <div class="skill-pill"><i class="fas fa-handshake"></i> Teamwork</div>
+        <div class="skill-pill"><i class="fas fa-chalkboard-teacher"></i> Teaching & Mentoring</div>
+        <div class="skill-pill"><i class="fas fa-fire"></i> Creativity</div>
+        <div class="skill-pill"><i class="fas fa-project-diagram"></i> Analytical Thinking</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-content-languages">
+      <div class="lang-list">
+        <div><div class="lang-hdr"><span>Gujarati</span><span>Native</span></div><div class="lang-bar"><div class="lang-fill" style="--w:100%"></div></div></div>
+        <div><div class="lang-hdr"><span>Hindi</span><span>Fluent</span></div><div class="lang-bar"><div class="lang-fill" style="--w:95%"></div></div></div>
+        <div><div class="lang-hdr"><span>English</span><span>Professional</span></div><div class="lang-bar"><div class="lang-fill" style="--w:88%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-content-hobbies">
+      <div class="hobbies-grid">
+        <div class="hobby-card"><div class="hb-icon">💻</div>Coding</div>
+        <div class="hobby-card"><div class="hb-icon">📚</div>Teaching</div>
+        <div class="hobby-card"><div class="hb-icon">🎮</div>Gaming</div>
+        <div class="hobby-card"><div class="hb-icon">🤖</div>AI & ML</div>
+        <div class="hobby-card"><div class="hb-icon">☕</div>Coffee</div>
+        <div class="hobby-card"><div class="hb-icon">🎵</div>Music</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-content-goals">
+      <div class="goals-list">
+        <div class="goal"><i class="fas fa-check-circle"></i>Become a Top Software Engineer</div>
+        <div class="goal"><i class="fas fa-check-circle"></i>Master ASP.NET Core & Cloud Architecture</div>
+        <div class="goal"><i class="fas fa-check-circle"></i>Build an AI-powered SaaS product</div>
+        <div class="goal"><i class="fas fa-check-circle"></i>Contribute to major Open Source projects</div>
+        <div class="goal"><i class="fas fa-check-circle"></i>Explore Docker, Kubernetes & DevOps deeply</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SKILLS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section" id="skills">
+    <div class="section-label"><span>⚡ ARSENAL</span></div>
+    <h2 class="section-title">Technical <span class="gt">Arsenal</span></h2>
+    <div class="section-line"></div>
+    <p class="section-sub">Technologies and tools I use to bring ideas to life.</p>
+
+    <div class="skills-grid">
+
+      <div class="skill-cat-card reveal">
+        <div class="scc-header"><div class="scc-icon"><i class="fas fa-code"></i></div><h3>Languages</h3></div>
+        <div class="tech-tags">
+          <span class="tt">C</span><span class="tt">Java</span><span class="tt">JavaScript</span><span class="tt">Python</span><span class="tt">C#</span>
+        </div>
+      </div>
+
+      <div class="skill-cat-card reveal">
+        <div class="scc-header"><div class="scc-icon"><i class="fas fa-desktop"></i></div><h3>Frontend</h3></div>
+        <div class="tech-tags">
+          <span class="tt">HTML5</span><span class="tt">CSS3</span><span class="tt">Bootstrap</span><span class="tt">React</span><span class="tt">TailwindCSS</span>
+        </div>
+      </div>
+
+      <div class="skill-cat-card reveal">
+        <div class="scc-header"><div class="scc-icon"><i class="fas fa-server"></i></div><h3>Backend</h3></div>
+        <div class="tech-tags">
+          <span class="tt">ASP.NET Core MVC</span><span class="tt">ASP.NET Web API</span><span class="tt">Node.js</span><span class="tt">Express.js</span>
+        </div>
+      </div>
+
+      <div class="skill-cat-card reveal">
+        <div class="scc-header"><div class="scc-icon"><i class="fas fa-database"></i></div><h3>Databases</h3></div>
+        <div class="tech-tags">
+          <span class="tt">SQL Server</span><span class="tt">MongoDB</span><span class="tt">MySQL</span><span class="tt">Entity Framework</span>
+        </div>
+      </div>
+
+      <div class="skill-cat-card reveal">
+        <div class="scc-header"><div class="scc-icon"><i class="fas fa-tools"></i></div><h3>Tools & DevOps</h3></div>
+        <div class="tech-tags">
+          <span class="tt">Git</span><span class="tt">GitHub</span><span class="tt">VS Code</span><span class="tt">Visual Studio</span><span class="tt">Rider</span><span class="tt">Postman</span><span class="tt">Docker</span><span class="tt">Azure</span>
+        </div>
+      </div>
+
+      <div class="skill-cat-card reveal">
+        <div class="scc-header"><div class="scc-icon"><i class="fas fa-brain"></i></div><h3>Core Concepts</h3></div>
+        <div class="tech-tags">
+          <span class="tt">OOP</span><span class="tt">DSA Basics</span><span class="tt">DBMS</span><span class="tt">MVC</span><span class="tt">REST API</span><span class="tt">CRUD</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Proficiency bars -->
+    <div class="proficiency reveal">
+      <h3 class="prof-title">Skill Proficiency</h3>
+      <div class="prof-grid">
+        <div class="prof-item"><div class="prof-hdr"><span>ASP.NET Core MVC</span><span>85%</span></div><div class="prof-bar"><div class="prof-fill" style="--p:85%"></div></div></div>
+        <div class="prof-item"><div class="prof-hdr"><span>React.js</span><span>78%</span></div><div class="prof-bar"><div class="prof-fill" style="--p:78%"></div></div></div>
+        <div class="prof-item"><div class="prof-hdr"><span>JavaScript</span><span>82%</span></div><div class="prof-bar"><div class="prof-fill" style="--p:82%"></div></div></div>
+        <div class="prof-item"><div class="prof-hdr"><span>C# / .NET</span><span>80%</span></div><div class="prof-bar"><div class="prof-fill" style="--p:80%"></div></div></div>
+        <div class="prof-item"><div class="prof-hdr"><span>SQL Server</span><span>75%</span></div><div class="prof-bar"><div class="prof-fill" style="--p:75%"></div></div></div>
+        <div class="prof-item"><div class="prof-hdr"><span>Node.js</span><span>70%</span></div><div class="prof-bar"><div class="prof-fill" style="--p:70%"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ JOURNEY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section" id="journey">
+    <div class="section-label"><span>🗺️ MY STORY</span></div>
+    <h2 class="section-title">My <span class="gt">Journey</span></h2>
+    <div class="section-line"></div>
+    <p class="section-sub">Education, experience and milestones that shaped my path.</p>
+
+    <div class="journey-timeline">
+      <div class="jt-line"></div>
+
+      <!-- Education -->
+      <div class="jt-item reveal jt-left">
+        <div class="jt-dot"><i class="fas fa-graduation-cap"></i></div>
+        <div class="jt-card">
+          <div class="jt-tag edu">🎓 Education</div>
+          <h3>B.Tech — Computer Engineering</h3>
+          <p class="jt-place"><i class="fas fa-university"></i> Darshan University, Rajkot</p>
+          <p class="jt-period"><i class="fas fa-calendar"></i> 2024 – 2028 (Expected)</p>
+          <p class="jt-desc">Studying core CS subjects including OOP, DBMS, DSA, Operating Systems, and Web Development. Maintaining a strong CGPA of <strong>8.67 / 10</strong>.</p>
+          <div class="jt-tags"><span>C</span><span>Java</span><span>DBMS</span><span>OOP</span></div>
+        </div>
+      </div>
+
+      <!-- Teaching Assistant -->
+      <div class="jt-item reveal jt-right">
+        <div class="jt-dot"><i class="fas fa-chalkboard-teacher"></i></div>
+        <div class="jt-card glow-border">
+          <div class="jt-tag ta">👨‍🏫 Teaching Assistant</div>
+          <h3>Teaching Assistant</h3>
+          <p class="jt-place"><i class="fas fa-building"></i> Darshan University — Dept. of Computer Engineering</p>
+          <p class="jt-period"><i class="fas fa-calendar"></i> 2024 – Present</p>
+          <p class="jt-desc">Assisting faculty in conducting lab sessions for junior batches. Teaching core programming concepts, debugging student code, and conducting one-on-one mentoring sessions.</p>
+          <div class="jt-tags"><span>C / C++</span><span>OOP</span><span>Mentoring</span><span>Lab Sessions</span></div>
+        </div>
+      </div>
+
+      <!-- MOM Project -->
+      <div class="jt-item reveal jt-left">
+        <div class="jt-dot"><i class="fas fa-code"></i></div>
+        <div class="jt-card">
+          <div class="jt-tag proj">🚀 Project Milestone</div>
+          <h3>MOM Management System</h3>
+          <p class="jt-place"><i class="fas fa-laptop-code"></i> Full-Stack Web Application</p>
+          <p class="jt-period"><i class="fas fa-calendar"></i> 2024</p>
+          <p class="jt-desc">Built a full-featured Minutes of Meeting system with meeting management, attendance tracking, CRUD via Entity Framework Core, and role-based authentication.</p>
+          <div class="jt-tags"><span>ASP.NET MVC</span><span>SQL Server</span><span>Entity Framework</span><span>C#</span></div>
+        </div>
+      </div>
+
+      <!-- Attendance System -->
+      <div class="jt-item reveal jt-right">
+        <div class="jt-dot"><i class="fas fa-tasks"></i></div>
+        <div class="jt-card">
+          <div class="jt-tag proj">🚀 Project Milestone</div>
+          <h3>Attendance Management System</h3>
+          <p class="jt-place"><i class="fas fa-laptop-code"></i> Full-Stack Web Application</p>
+          <p class="jt-period"><i class="fas fa-calendar"></i> 2024</p>
+          <p class="jt-desc">Designed attendance entry & reporting modules. Implemented Excel export functionality and used advanced SQL queries with stored procedures.</p>
+          <div class="jt-tags"><span>ASP.NET MVC</span><span>SQL Server</span><span>Stored Procs</span><span>Excel Export</span></div>
+        </div>
+      </div>
+
+      <!-- Ongoing -->
+      <div class="jt-item reveal jt-left">
+        <div class="jt-dot pulse-dot"><i class="fas fa-rocket"></i></div>
+        <div class="jt-card glow-border-green">
+          <div class="jt-tag now">🔥 Now</div>
+          <h3>Exploring MERN Stack & Cloud</h3>
+          <p class="jt-place"><i class="fas fa-laptop-code"></i> Self-Learning & Projects</p>
+          <p class="jt-period"><i class="fas fa-calendar"></i> 2025 – Present</p>
+          <p class="jt-desc">Expanding into full MERN stack development, learning Docker containerization, Azure cloud services, and building AI-integrated web applications.</p>
+          <div class="jt-tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Docker</span><span>Azure</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ PROJECTS ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section" id="projects">
+    <div class="section-label"><span>🚀 PORTFOLIO</span></div>
+    <h2 class="section-title">Featured <span class="gt">Projects</span></h2>
+    <div class="section-line"></div>
+    <p class="section-sub">Real-world projects built with passion and shipped with precision.</p>
+
+    <div class="projects-grid">
+
+      <div class="proj-card reveal featured">
+        <div class="proj-img" style="background:linear-gradient(135deg,#0ea5e9,#06b6d4,#10b981)">
+          <i class="fas fa-calendar-check"></i>
+          <div class="proj-overlay">
+            <a href="https://github.com/aniruddh209" target="_blank" class="ov-btn"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="proj-badge">Featured</div>
+        <div class="proj-body">
+          <h3>MOM Management System</h3>
+          <p>Full-featured meeting management platform with attendance tracking, CRUD via Entity Framework Core, meeting report generation, and role-based authentication system.</p>
+          <div class="proj-tech">
+            <span>ASP.NET Core MVC</span><span>SQL Server</span><span>Entity Framework</span><span>C#</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/aniruddh209" target="_blank" class="pl-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-img" style="background:linear-gradient(135deg,#10b981,#06b6d4)">
+          <i class="fas fa-clipboard-check"></i>
+          <div class="proj-overlay">
+            <a href="https://github.com/aniruddh209" target="_blank" class="ov-btn"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>Attendance Management System</h3>
+          <p>Designed attendance entry and reporting modules with Excel export functionality, leveraging SQL queries and stored procedures for data management.</p>
+          <div class="proj-tech">
+            <span>ASP.NET Core MVC</span><span>SQL Server</span><span>Stored Procs</span><span>C#</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/aniruddh209" target="_blank" class="pl-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-img" style="background:linear-gradient(135deg,#8b5cf6,#06b6d4)">
+          <i class="fas fa-question-circle"></i>
+          <div class="proj-overlay">
+            <a href="https://github.com/aniruddh209" target="_blank" class="ov-btn"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>Interactive Quiz Application</h3>
+          <p>Feature-rich quiz app with 250+ questions, user authentication, question shuffling, score tracking, and a beautiful animated UI. Select custom question count.</p>
+          <div class="proj-tech">
+            <span>React</span><span>JavaScript</span><span>CSS3</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/aniruddh209" target="_blank" class="pl-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-img" style="background:linear-gradient(135deg,#f59e0b,#10b981)">
+          <i class="fas fa-users-cog"></i>
+          <div class="proj-overlay">
+            <a href="https://github.com/aniruddh209" target="_blank" class="ov-btn"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="proj-body">
+          <h3>HRMS Application</h3>
+          <p>Human Resource Management System with attendance tracking, leave management, payroll processing, and a dynamic analytics dashboard with real-time charts.</p>
+          <div class="proj-tech">
+            <span>React</span><span>Node.js</span><span>MySQL</span><span>Chart.js</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/aniruddh209" target="_blank" class="pl-btn"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ CONTACT ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <section class="section" id="contact">
+    <div class="section-label"><span>📬 GET IN TOUCH</span></div>
+    <h2 class="section-title">Contact <span class="gt">Me</span></h2>
+    <div class="section-line"></div>
+    <p class="section-sub">Have a project idea or an opportunity? Let's talk!</p>
+
+    <div class="contact-wrap">
+      <div class="contact-left reveal">
+        <form id="contactForm" class="cform" onsubmit="handleFormSubmit(event)">
+          <div class="fg"><label>Full Name</label><input type="text" id="nameInput" placeholder="Your Name" required /></div>
+          <div class="fg"><label>Email Address</label><input type="email" id="emailInput" placeholder="your@email.com" required /></div>
+          <div class="fg"><label>Subject</label><input type="text" id="subjectInput" placeholder="Project Inquiry" /></div>
+          <div class="fg"><label>Message</label><textarea id="messageInput" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+          <button type="submit" class="btn-primary btn-full"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-right reveal">
+        <div class="avail-card">
+          <div class="avail-dot"></div>
+          <div><h4>Open for Opportunities</h4><p>Available for internships, full-time roles & freelance work</p></div>
+        </div>
+
+        <div class="cdetails">
+          <div class="cdi">
+            <div class="cdi-icon"><i class="fas fa-envelope"></i></div>
+            <div><span class="cdi-label">Email</span><span class="cdi-val">aniruddhp16@email.com</span></div>
+          </div>
+          <div class="cdi">
+            <div class="cdi-icon"><i class="fas fa-phone"></i></div>
+            <div><span class="cdi-label">Phone</span><span class="cdi-val">+91 9313599527</span></div>
+          </div>
+          <div class="cdi">
+            <div class="cdi-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div><span class="cdi-label">Location</span><span class="cdi-val">Rajkot, Gujarat, India</span></div>
+          </div>
+          <div class="cdi">
+            <div class="cdi-icon"><i class="fas fa-university"></i></div>
+            <div><span class="cdi-label">University</span><span class="cdi-val">Darshan University</span></div>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <h4>Connect Online</h4>
+          <div class="socials">
+            <a href="https://github.com/aniruddh209" target="_blank" class="soc github" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="soc linkedin" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="soc twitter"  title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="soc instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FOOTER ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="nav-brand" style="justify-content:center;margin-bottom:8px">
+        <div class="brand-icon"><i class="fas fa-code"></i></div>
+        <span class="brand-name">Aniruddh<span class="brand-dot">.dev</span></span>
+      </div>
+      <p class="f-tagline">Crafting digital experiences with passion & precision · Darshan University, Rajkot</p>
+      <p class="f-copy">© 2026 Aniruddh Parmar · Built with ❤️ and lots of ☕</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
